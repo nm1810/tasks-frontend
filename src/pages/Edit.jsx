@@ -15,6 +15,7 @@ export default function Edit() {
     const [date, setDate] = useState('');
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+    const [type, setType] = useState('');
 
     const handleEdit = () => {
         setError('');
@@ -23,7 +24,8 @@ export default function Edit() {
             notes: notes,
             title: title,
             repeatFrequency: repeatFrequency,
-            date: date
+            date: date,
+            type: type
         }).then(function () {
             setSuccess('Successfully updated task');
         }).catch(err => {
@@ -106,6 +108,15 @@ export default function Edit() {
                     onChange={(ev) => setDate(ev.target.value)}
                 />
 
+                <label htmlFor="type">Type</label>
+                <select
+                    id="type"
+                    name="type"
+                    onChange={(ev) => setType(ev.target.value)}
+                >
+                    <option value={"email"}>Email</option>
+                    <option value={"desktop"}>Desktop</option>
+                </select>
                 <input className={'inputButton'} type="button" onClick={handleEdit} value={'Submit'} />
             </form>
         </div>

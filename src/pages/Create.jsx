@@ -8,6 +8,7 @@ export default function Create() {
     const [date, setDate] = useState('');
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+    const [type, setType] = useState('email');
 
     const handleCreate = () => {
         setError('');
@@ -16,7 +17,8 @@ export default function Create() {
             notes: notes,
             title: title,
             repeatFrequency: repeatFrequency,
-            date: date
+            date: date,
+            type: type
         }).then(function () {
             setSuccess('Successfully created task');
         }).catch(err => {
@@ -76,6 +78,15 @@ export default function Create() {
                     onChange={(ev) => setDate(ev.target.value)}
                 />
 
+                <label htmlFor="type">Type</label>
+                <select
+                    id="type"
+                    name="type"
+                    onChange={(ev) => setType(ev.target.value)}
+                >
+                    <option value="email">Email</option>
+                    <option value="desktop">Desktop</option>
+                </select>
                 <input className={'inputButton'} type="button" onClick={handleCreate} value={'Submit'} />
             </form>
         </div>

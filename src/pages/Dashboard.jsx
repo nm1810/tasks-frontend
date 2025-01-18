@@ -34,6 +34,12 @@ export default function Dashboard() {
             width: 80,
         },
         {
+            field: 'type',
+            headerName: 'Type',
+            type: 'string',
+            width: 80,
+        },
+        {
             field: "action",
             headerName: "Action",
             sortable: false,
